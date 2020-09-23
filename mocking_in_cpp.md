@@ -1,13 +1,29 @@
 # Mocking in cpp
 
-## Vritual Methods
+### A perfect example
 
-some sample
+An example from the googlemock:
 
+```cpp
+class Clock {
+public:
+    virtual uint64_t epoch();
+    virtual uint64_t rdtsc();
+    virtual std::zoned_time for_tz(std::chrono::time_zone tz); 
+};
+
+class MockClock {
+public:
+  MOCK_METHOD(uint64_t, epoch_time, ());
+  MOCK_METHOD(std::zoned_time, for_tz, (std::chrono::time_zone));
+};
 ```
-Some basic code
-Second code line
-```
+
++ Partial implementation (rdtsc is not implemented)
+
+- All-virtual functions
+- Basically, a new language
+
 
 ### A sample of template code contamination
 
